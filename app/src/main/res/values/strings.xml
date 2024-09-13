@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ToDo-MAD</string>
+    <string name="TaskMate">TaskMate</string>
 </resources>
