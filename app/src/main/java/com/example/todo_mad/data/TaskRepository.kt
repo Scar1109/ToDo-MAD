@@ -4,7 +4,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import com.example.todo_mad.TaskWidgetProvider
+import com.example.todo_mad.utill.TaskWidgetProvider
 import com.example.todo_mad.model.Task
 
 class TaskRepository(private val context: Context) {

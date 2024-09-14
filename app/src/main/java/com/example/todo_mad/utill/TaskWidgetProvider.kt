@@ -1,4 +1,4 @@
-package com.example.todo_mad
+package com.example.todo_mad.utill
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -7,6 +7,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
+import com.example.todo_mad.R
 import com.example.todo_mad.data.TaskRepository
 import com.example.todo_mad.ui.MainActivity
 
