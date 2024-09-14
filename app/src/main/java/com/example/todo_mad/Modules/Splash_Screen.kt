@@ -6,8 +6,8 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todo_mad.MainActivity
 import com.example.todo_mad.R
+import com.example.todo_mad.ui.MainActivity
 
 private val handler = Handler(Looper.getMainLooper())
 
@@ -18,7 +18,7 @@ class Splash_Screen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         handler.postDelayed({
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, 2500L)
 

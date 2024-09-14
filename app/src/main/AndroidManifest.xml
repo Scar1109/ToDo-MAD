@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDoMAD"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+        <activity android:name=".ui.AddEditTaskActivity" />
+        <activity android:name=".ui.TimerActivity" />
+        <activity android:name=".ui.MainActivity" />
         <activity
             android:name=".Modules.Splash_Screen"
             android:exported="true">

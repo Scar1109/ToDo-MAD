@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/task_card"
-    android:layout_width="370dp"
-    android:layout_height="165dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    android:padding="15dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <LinearLayout android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:text="Task Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="4dp" />
 
-        <TextView
-            android:id="@+id/task_title"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="italic"
-            tools:text="sfsdfsdfsdfdsf" />
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task Description"
+        android:textSize="14sp"
+        android:paddingBottom="2dp" />
 
-        <TextView
-            android:id="@+id/task_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="gdfgdsgdfgdfgdfgdfgdgdfgdf"
-            android:textColor="#CC000000"
-            android:textSize="19sp"
-            android:textStyle="italic" />
+    <TextView
+        android:id="@+id/textViewDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Due Date"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:paddingBottom="8dp" />
 
-        <TextView
-            android:id="@+id/task_date"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingTop="8dp"
-            android:text="2024/10/19"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <!-- Button to Edit Task -->
+    <Button
+        android:id="@+id/buttonEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_marginEnd="8dp" />
 
-</RelativeLayout>
+    <!-- Button to Delete Task -->
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete" />
+</LinearLayout>
