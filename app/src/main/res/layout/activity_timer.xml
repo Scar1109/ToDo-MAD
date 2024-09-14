@@ -7,17 +7,19 @@
     android:padding="16dp"
     android:gravity="center">
 
+    <!-- TextView to display the stopwatch time -->
     <TextView
         android:id="@+id/textViewTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="00:00:00:000"
         android:textSize="40sp"
         android:layout_gravity="center"
         android:padding="16dp" />
 
+    <!-- Button to start the stopwatch -->
     <Button
-        android:id="@+id/buttonStartStop"
+        android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start"
@@ -25,6 +27,27 @@
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white" />
 
+    <!-- Button to pause the stopwatch -->
+    <Button
+        android:id="@+id/buttonPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@android:color/white" />
+
+    <!-- Button to stop the stopwatch -->
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@android:color/white" />
+
+    <!-- Button to reset the stopwatch -->
     <Button
         android:id="@+id/buttonReset"
         android:layout_width="wrap_content"
