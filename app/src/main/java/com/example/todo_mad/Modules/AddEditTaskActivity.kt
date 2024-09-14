@@ -1,20 +1,24 @@
 package com.example.todo_mad.ui
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.todo_mad.R
 import com.example.todo_mad.data.TaskRepository
 import com.example.todo_mad.databinding.ActivityAddEditTaskBinding
 import com.example.todo_mad.model.Task
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class AddEditTaskActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddEditTaskBinding
     private lateinit var taskRepository: TaskRepository
     private var taskId: Int? = null
+    private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +43,17 @@ class AddEditTaskActivity : AppCompatActivity() {
         // Prepopulate fields if editing
         binding.editTextTitle.setText(taskTitle)
         binding.editTextDescription.setText(taskDescription)
-        binding.editTextDueDate.setText(taskDueDate)
+        binding.textViewDueDate.text = taskDueDate
+
+        // Show DatePickerDialog when the due date TextView is clicked
+        binding.textViewDueDate.setOnClickListener {
+            showDatePickerDialog()
+        }
 
         binding.buttonSaveTask.setOnClickListener {
             val title = binding.editTextTitle.text.toString()
             val description = binding.editTextDescription.text.toString()
-            val dueDate = binding.editTextDueDate.text.toString()
+            val dueDate = binding.textViewDueDate.text.toString()
 
             if (taskId != null) {
                 // Update existing task
@@ -57,5 +66,28 @@ class AddEditTaskActivity : AppCompatActivity() {
             }
             finish()
         }
+    }
+
+    // Function to show the DatePickerDialog
+    private fun showDatePickerDialog() {
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                updateDueDateTextView()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.show()
+    }
+
+    // Function to update the due date TextView with the selected date
+    private fun updateDueDateTextView() {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        binding.textViewDueDate.text = dateFormat.format(calendar.time)
     }
 }

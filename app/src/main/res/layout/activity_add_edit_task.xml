@@ -22,13 +22,16 @@
         android:inputType="text"
         android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/editTextDueDate"
+    <!-- Use a TextView to display the date chosen by the DatePicker -->
+    <TextView
+        android:id="@+id/textViewDueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Due Date"
-        android:inputType="date"
-        android:padding="8dp" />
+        android:hint="Pick a Due Date"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground" />
 
     <Button
         android:id="@+id/buttonSaveTask"
