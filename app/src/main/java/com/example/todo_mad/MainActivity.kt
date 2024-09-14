@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.todo_mad.TaskWidgetProvider
 import com.example.todo_mad.data.TaskRepository
 import com.example.todo_mad.databinding.ActivityMainBinding
 import com.example.todo_mad.model.Task
@@ -49,12 +50,14 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         taskListAdapter.updateTasks(taskRepository.getAllTasks())
+        TaskWidgetProvider.updateWidget(this)
     }
 
     // Function to delete a specific task by its ID
     private fun deleteTask(taskId: Int) {
         taskRepository.deleteTask(taskId)
         taskListAdapter.updateTasks(taskRepository.getAllTasks())
+        TaskWidgetProvider.updateWidget(this)
     }
 
     // Function to edit a task
