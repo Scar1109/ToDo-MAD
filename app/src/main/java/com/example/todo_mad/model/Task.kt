@@ -1,8 +1,8 @@
 package com.example.todo_mad.model
 
 data class Task(
-    val id: Int,
-    val title: String,
-    val description: String,
-    val dueDate: String
+    var id: Int,
+    var title: String,
+    var description: String,
+    var dueDate: String
 )

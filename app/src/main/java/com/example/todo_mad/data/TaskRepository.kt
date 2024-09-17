@@ -6,10 +6,23 @@ import android.content.Context
 import android.content.Intent
 import com.example.todo_mad.utill.TaskWidgetProvider
 import com.example.todo_mad.model.Task
+import com.example.todo_mad.utill.SharedPreferencesHelper
 
 class TaskRepository(private val context: Context) {
 
     fun addTask(task: Task) {
+        // Load the last task ID from SharedPreferences
+        var lastTaskId = SharedPreferencesHelper.loadLastTaskId(context)
+
+        // Increment the task ID
+        lastTaskId += 1
+
+        // Set the new ID to the task
+        task.id = lastTaskId
+
+        // Save the updated ID to SharedPreferences
+        SharedPreferencesHelper.saveLastTaskId(lastTaskId, context)
+
         val taskList = LocalStorageHelper.loadTasksFromFile(context).toMutableList()
         taskList.add(task)
         LocalStorageHelper.saveTasksToFile(taskList, context)
