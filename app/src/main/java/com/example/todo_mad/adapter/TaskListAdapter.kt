@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo_mad.R
@@ -19,8 +20,8 @@ class TaskListAdapter(
         private val textViewTitle: TextView = itemView.findViewById(R.id.textViewTitle)
         private val textViewDescription: TextView = itemView.findViewById(R.id.textViewDescription)
         private val textViewDueDate: TextView = itemView.findViewById(R.id.textViewDueDate)
-        private val buttonDelete: Button = itemView.findViewById(R.id.buttonDelete)
-        private val buttonEdit: Button = itemView.findViewById(R.id.buttonEdit)
+        private val buttonDelete: ImageView = itemView.findViewById(R.id.buttonDelete)
+        private val buttonEdit: ImageView = itemView.findViewById(R.id.buttonEdit)
 
         fun bind(task: Task) {
             textViewTitle.text = task.title

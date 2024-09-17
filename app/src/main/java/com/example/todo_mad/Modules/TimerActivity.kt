@@ -5,8 +5,10 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.todo_mad.R
 import com.example.todo_mad.databinding.ActivityTimerBinding
 
 class TimerActivity : AppCompatActivity() {
@@ -40,6 +42,8 @@ class TimerActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityTimerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        getWindow().statusBarColor = ContextCompat.getColor(this, R.color.primary_color)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.timerLayout) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

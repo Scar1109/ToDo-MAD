@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getWindow().statusBarColor = ContextCompat.getColor(this, R.color.primary_color)
+
         // Create the notification channel
         NotificationHelper.createNotificationChannel(this)
 
@@ -73,6 +76,8 @@ class MainActivity : AppCompatActivity() {
 
         // Schedule notifications for all tasks
         scheduleAllTaskNotifications()
+
+
     }
 
     override fun onResume() {
