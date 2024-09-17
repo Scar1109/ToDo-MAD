@@ -6,14 +6,14 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <!-- Button to Edit Task -->
-
-    <!-- Button to Delete Task -->
+    <!-- Container for Task Details -->
     <LinearLayout
-        android:layout_width="362dp"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
+        <!-- Task Title -->
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
@@ -24,6 +24,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Task Description -->
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="wrap_content"
@@ -33,33 +34,47 @@
             android:text="Task Description"
             android:textSize="14sp" />
 
+        <!-- Task Due Date -->
         <TextView
             android:id="@+id/textViewDueDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
+            android:paddingBottom="2dp"
             android:text="Due Date"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Task Due Time -->
+        <TextView
+            android:id="@+id/textViewDueTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:text="Due Time"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />
     </LinearLayout>
 
+    <!-- Container for Action Buttons -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Edit Task Button -->
         <ImageView
             android:id="@+id/buttonEdit"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="8dp"
             app:srcCompat="@drawable/edit_12108481" />
 
+        <!-- Delete Task Button -->
         <ImageView
             android:id="@+id/buttonDelete"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="8dp"
             app:srcCompat="@drawable/trash" />
     </LinearLayout>
 

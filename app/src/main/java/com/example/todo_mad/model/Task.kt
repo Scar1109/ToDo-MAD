@@ -4,5 +4,6 @@ data class Task(
     var id: Int,
     var title: String,
     var description: String,
-    var dueDate: String
+    var dueDate: String,
+    var dueTime: String
 )
