@@ -4,8 +4,10 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.todo_mad.R
 import com.example.todo_mad.data.TaskRepository
 import com.example.todo_mad.databinding.ActivityAddEditTaskBinding
 import com.example.todo_mad.model.Task
@@ -25,6 +27,8 @@ class AddEditTaskActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityAddEditTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        getWindow().statusBarColor = ContextCompat.getColor(this, R.color.primary_color)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.addEditTaskLayout) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -51,17 +55,42 @@ class AddEditTaskActivity : AppCompatActivity() {
         }
 
         binding.buttonSaveTask.setOnClickListener {
-            val title = binding.editTextTitle.text.toString()
-            val description = binding.editTextDescription.text.toString()
-            val dueDate = binding.textViewDueDate.text.toString()
+            val title = binding.editTextTitle.text.toString().trim()
+            val description = binding.editTextDescription.text.toString().trim()
+            val dueDateText = binding.textViewDueDate.text.toString().trim()
 
+            // Validate fields
+            if (title.isEmpty()) {
+                binding.editTextTitle.error = "Title is required"
+                return@setOnClickListener
+            }
+            if (description.isEmpty()) {
+                binding.editTextDescription.error = "Description is required"
+                return@setOnClickListener
+            }
+            if (dueDateText.isEmpty()) {
+                binding.textViewDueDate.error = "Due Date is required"
+                return@setOnClickListener
+            }
+
+            // Validate that the due date is in the future
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val dueDate = dateFormat.parse(dueDateText)
+
+            val currentDate = Calendar.getInstance().time
+            if (dueDate != null && !dueDate.after(currentDate)) {
+                binding.textViewDueDate.error = "Due Date must be a future date"
+                return@setOnClickListener
+            }
+
+            // If fields are valid and due date is in the future, save or update the task
             if (taskId != null) {
                 // Update existing task
-                val updatedTask = Task(taskId!!, title, description, dueDate)
+                val updatedTask = Task(taskId!!, title, description, dueDateText)
                 taskRepository.editTask(updatedTask)
             } else {
                 // Add new task
-                val newTask = Task(0, title, description, dueDate)
+                val newTask = Task(0, title, description, dueDateText)
                 taskRepository.addTask(newTask)
             }
             finish()

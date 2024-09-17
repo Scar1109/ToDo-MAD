@@ -20,11 +20,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="179dp"
-        android:layout_height="61dp"
+        android:layout_width="196dp"
+        android:layout_height="66dp"
         android:fontFamily="sans-serif"
         android:text="@string/TaskMate"
-        android:textColor="@color/blue"
+        android:textColor="@color/primary_color"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

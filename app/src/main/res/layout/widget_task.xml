@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/secondary_color"
+    android:backgroundTint="@color/secondary_color"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -10,10 +12,10 @@
         android:id="@+id/widgetTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
         android:text="@string/upcoming_tasks"
-        android:textStyle="bold"
         android:textSize="16sp"
-        android:paddingBottom="4dp" />
+        android:textStyle="bold" />
 
     <!-- TextView to display upcoming tasks -->
     <TextView
@@ -21,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/no_tasks_available"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
