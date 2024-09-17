@@ -3,9 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/secondary_color"
-    android:backgroundTint="@color/secondary_color"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:paddingStart="18dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="12dp">
 
     <!-- Title for the Widget -->
     <TextView
