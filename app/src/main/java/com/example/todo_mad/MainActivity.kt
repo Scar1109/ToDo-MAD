@@ -14,11 +14,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo_mad.R
-import com.example.todo_mad.TaskReminderReceiver
 import com.example.todo_mad.data.TaskRepository
 import com.example.todo_mad.databinding.ActivityMainBinding
 import com.example.todo_mad.model.Task
 import com.example.todo_mad.util.NotificationHelper
+import com.example.todo_mad.util.TaskReminderReceiver
 import com.example.todo_mad.utill.TaskWidgetProvider
 import java.text.SimpleDateFormat
 import java.util.Calendar
